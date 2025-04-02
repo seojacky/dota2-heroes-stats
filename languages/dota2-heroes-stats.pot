@@ -1,5 +1,6 @@
 # Copyright (C) 2024 seo_jacky
 # This file is distributed under the same license as the Dota 2 Heroes Stats plugin.
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Dota 2 Heroes Stats 1.0.0\n"
@@ -9,65 +10,74 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-02T10:00:00+00:00\n"
+"POT-Creation-Date: 2025-04-02 17:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Domain: dota2-heroes-stats\n"
+"\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
 
-#. Plugin Name of the plugin
-msgid "Dota 2 Heroes Stats"
-msgstr ""
-
-#. Plugin URI of the plugin
-msgid "https://github.com/seojacky/dota2-heroes-stats"
+#: dota2-heroes-stats.php:147 dota2-heroes-stats.php:211
+msgid "Data updated:"
 msgstr ""
 
 #. Description of the plugin
 msgid "Display Dota 2 heroes statistics with a shortcode [dota2_heroes_stats]."
 msgstr ""
 
-#. Author of the plugin
-msgid "seo_jacky"
+#. Name of the plugin
+msgid "Dota 2 Heroes Stats"
+msgstr ""
+
+#: dota2-heroes-stats.php:143 dota2-heroes-stats.php:182
+msgid "Hero"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/seojacky/dota2-heroes-stats"
 msgstr ""
 
 #. Author URI of the plugin
 msgid "https://t.me/big_jacky"
 msgstr ""
 
-#: dota2-heroes-stats.php:112
-#: dota2-heroes-stats.php:174
-msgid "Hero"
-msgstr ""
-
-#: dota2-heroes-stats.php:113
-#: dota2-heroes-stats.php:175
-msgid "Pro picks"
-msgstr ""
-
-#: dota2-heroes-stats.php:114
-#: dota2-heroes-stats.php:176
-msgid "Pro bans"
-msgstr ""
-
-#: dota2-heroes-stats.php:115
-#: dota2-heroes-stats.php:177
-msgid "Pro wins"
-msgstr ""
-
-#: dota2-heroes-stats.php:116
-#: dota2-heroes-stats.php:193
-msgid "Data updated:"
-msgstr ""
-
-#: dota2-heroes-stats.php:117
-#: dota2-heroes-stats.php:143
-msgid "No heroes data available. Please try again later."
-msgstr ""
-
-#: dota2-heroes-stats.php:118
+#: dota2-heroes-stats.php:149
 msgid "Loading heroes data..."
 msgstr ""
 
-#: dota2-heroes-stats.php:171
+#: dota2-heroes-stats.php:148 dota2-heroes-stats.php:163
+msgid "No heroes data available. Please try again later."
+msgstr ""
+
+#: dota2-heroes-stats.php:184
+msgid "Number of hero bans in professional matches in the last month"
+msgstr ""
+
+#: dota2-heroes-stats.php:183
+msgid "Number of hero picks in professional matches in the last month"
+msgstr ""
+
+#: dota2-heroes-stats.php:185
+msgid "Number of wins in professional matches in the last month"
+msgstr ""
+
+#: dota2-heroes-stats.php:145 dota2-heroes-stats.php:184
+msgid "Pro bans"
+msgstr ""
+
+#: dota2-heroes-stats.php:144 dota2-heroes-stats.php:183
+msgid "Pro picks"
+msgstr ""
+
+#: dota2-heroes-stats.php:146 dota2-heroes-stats.php:185
+msgid "Pro wins"
+msgstr ""
+
+#: dota2-heroes-stats.php:174
 msgid "Search heroes..."
+msgstr ""
+
+#. Author of the plugin
+msgid "seo_jacky"
 msgstr ""

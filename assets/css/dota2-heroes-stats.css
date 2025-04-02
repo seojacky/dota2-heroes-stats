@@ -48,6 +48,7 @@
 .dhs-heroes-table th {
     font-weight: 600;
     border-bottom: 2px solid #cbd5e0;
+    cursor: help;
 }
 
 .dhs-heroes-table tr:nth-child(even) {

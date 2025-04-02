@@ -22,7 +22,7 @@
         
         // Add sort icons and cursor style
         $headers.append('<span class="dhs-sort-icon"></span>');
-        $headers.css('cursor', 'pointer');
+        // Don't override cursor style, as it's already set to "help" in CSS
         
         // Handle click on table headers
         $headers.on('click', function() {

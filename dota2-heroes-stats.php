@@ -17,10 +17,10 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('DHS_VERSION', '1.0');
+define('DHS_VERSION', '1.0.0');
 define('DHS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('DHS_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('DHS_TEXT_DOMAIN', 'dota2-heroes-stats');
+
 
 class Dota2_Heroes_Stats {
     /**
@@ -51,7 +51,7 @@ class Dota2_Heroes_Stats {
      */
     public function init() {
         // Load translations
-        load_plugin_textdomain(DHS_TEXT_DOMAIN, false, dirname(plugin_basename(__FILE__)) . '/languages');
+        load_plugin_textdomain('dota2-heroes-stats', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
     
     /**
@@ -59,11 +59,11 @@ class Dota2_Heroes_Stats {
      */
     public function activate() {
         // Schedule daily cron job at 3:00 GMT
-        if (!wp_next_scheduled('dota2_heroes_stats_cron_event')) {
+        if (!wp_next_scheduled('dhs_daily_cron_event')) {
             // Get timezone offset to calculate 3:00 GMT in local server time
             $gmt_offset = get_option('gmt_offset');
             $timestamp = strtotime('tomorrow 03:00:00') - ($gmt_offset * HOUR_IN_SECONDS);
-            wp_schedule_event($timestamp, 'daily', 'dota2_heroes_stats_cron_event');
+            wp_schedule_event($timestamp, 'daily', 'dhs_daily_cron_event');
         }
         
         // Perform initial data fetch
@@ -75,7 +75,7 @@ class Dota2_Heroes_Stats {
      */
     public function deactivate() {
         // Clear scheduled cron job
-        wp_clear_scheduled_hook('dota2_heroes_stats_cron_event');
+        wp_clear_scheduled_hook('dhs_daily_cron_event');
     }
     
     /**
@@ -140,13 +140,13 @@ class Dota2_Heroes_Stats {
             
             // Localize script with translation strings
             wp_localize_script('dhs-scripts', 'dhsTranslations', array(
-                'heroColumnTitle' => __('Hero', DHS_TEXT_DOMAIN),
-                'proPicksColumnTitle' => __('Pro picks', DHS_TEXT_DOMAIN),
-                'proBansColumnTitle' => __('Pro bans', DHS_TEXT_DOMAIN),
-                'proWinsColumnTitle' => __('Pro wins', DHS_TEXT_DOMAIN),
-                'dataUpdated' => __('Data updated:', DHS_TEXT_DOMAIN),
-                'noDataAvailable' => __('No heroes data available. Please try again later.', DHS_TEXT_DOMAIN),
-                'loading' => __('Loading heroes data...', DHS_TEXT_DOMAIN)
+                'heroColumnTitle' => __('Hero', 'dota2-heroes-stats'),
+                'proPicksColumnTitle' => __('Pro picks', 'dota2-heroes-stats'),
+                'proBansColumnTitle' => __('Pro bans', 'dota2-heroes-stats'),
+                'proWinsColumnTitle' => __('Pro wins', 'dota2-heroes-stats'),
+                'dataUpdated' => __('Data updated:', 'dota2-heroes-stats'),
+                'noDataAvailable' => __('No heroes data available. Please try again later.', 'dota2-heroes-stats'),
+                'loading' => __('Loading heroes data...', 'dota2-heroes-stats')
             ));
         }
     }
@@ -160,7 +160,7 @@ class Dota2_Heroes_Stats {
         
         // Check if we have data
         if (empty($stored_data) || empty($stored_data['heroes'])) {
-            return '<div class="dhs-error">' . __('No heroes data available. Please try again later.', DHS_TEXT_DOMAIN) . '</div>';
+            return '<div class="dhs-error">' . __('No heroes data available. Please try again later.', 'dota2-heroes-stats') . '</div>';
         }
         
         $heroes = $stored_data['heroes'];
@@ -168,20 +168,21 @@ class Dota2_Heroes_Stats {
         
         // Start building output
         $output = '<div class="dhs-container">';
+        
         // Add search container directly in PHP
         $output .= '<div class="dhs-search-container">';
-        $output .= '<input type="text" class="dhs-search-input" placeholder="' . __('Search heroes...', DHS_TEXT_DOMAIN) . '">';
+        $output .= '<input type="text" class="dhs-search-input" placeholder="' . __('Search heroes...', 'dota2-heroes-stats') . '">';
         $output .= '</div>';
         
         // Create table
         $output .= '<div class="dhs-table-responsive">';
-        $output .= '<table class="dhs-heroes-table">';
+        $output .= '<table class="dhs-heroes-table kadence-counter-reset">';
         $output .= '<thead>';
         $output .= '<tr>';
-        $output .= '<th>' . __('Hero', DHS_TEXT_DOMAIN) . '</th>';
-        $output .= '<th>' . __('Pro picks', DHS_TEXT_DOMAIN) . '</th>';
-        $output .= '<th>' . __('Pro bans', DHS_TEXT_DOMAIN) . '</th>';
-        $output .= '<th>' . __('Pro wins', DHS_TEXT_DOMAIN) . '</th>';
+        $output .= '<th>' . __('Hero', 'dota2-heroes-stats') . '</th>';
+        $output .= '<th title="' . __('Number of hero picks in professional matches in the last month', 'dota2-heroes-stats') . '">' . __('Pro picks', 'dota2-heroes-stats') . '</th>';
+        $output .= '<th title="' . __('Number of hero bans in professional matches in the last month', 'dota2-heroes-stats') . '">' . __('Pro bans', 'dota2-heroes-stats') . '</th>';
+        $output .= '<th title="' . __('Number of wins in professional matches in the last month', 'dota2-heroes-stats') . '">' . __('Pro wins', 'dota2-heroes-stats') . '</th>';
         $output .= '</tr>';
         $output .= '</thead>';
         $output .= '<tbody>';
@@ -207,7 +208,7 @@ class Dota2_Heroes_Stats {
         
         // Add last updated info
         $output .= '<div class="dhs-updated-info">';
-        $output .= __('Data updated:', DHS_TEXT_DOMAIN) . ' ' . $last_updated;
+        $output .= __('Data updated:', 'dota2-heroes-stats') . ' ' . $last_updated;
         $output .= '</div>';
         
         $output .= '</div>';
