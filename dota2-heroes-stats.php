@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('DHS_VERSION', '1.0.0');
+define('DHS_VERSION', '1.0');
 define('DHS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('DHS_PLUGIN_URL', plugin_dir_url(__FILE__));
 
