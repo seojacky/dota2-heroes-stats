@@ -1,5 +1,7 @@
 /**
  * Dota 2 Heroes Stats CSS
+ *
+ * Includes fixes for Kadence theme auto-numbering
  */
 
 .dhs-container {
@@ -7,10 +9,18 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-.dhs-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 600;
+.dhs-search-container {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dhs-search-input {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    width: 250px;
+    font-size: 14px;
 }
 
 .dhs-table-responsive {
@@ -52,6 +62,16 @@
     display: flex;
     align-items: center;
     font-weight: 500;
+}
+
+/* Prevent Kadence theme auto-numbering */
+.dhs-heroes-table tr td:first-child::before {
+    content: none !important;
+}
+
+/* Reset counter for Kadence theme */
+.dhs-heroes-table {
+    counter-reset: none !important;
 }
 
 .dhs-hero-cell img {

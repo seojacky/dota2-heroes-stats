@@ -8,7 +8,8 @@
         // Initialize sorting for the heroes table
         if ($('.dhs-heroes-table').length) {
             initTableSorting();
-            initTableSearchFilter();
+            // Search functionality is now implemented directly in PHP
+            initSearchFunctionality();
         }
     });
     
@@ -89,18 +90,11 @@
     }
     
     /**
-     * Initialize search filter
+     * Initialize search functionality (search box is now created in PHP)
      */
-    function initTableSearchFilter() {
-        // Create search input
-        const $searchContainer = $('<div class="dhs-search-container"></div>');
-        const $searchInput = $('<input type="text" class="dhs-search-input" placeholder="Search heroes...">');
-        
-        $searchContainer.append($searchInput);
-        $('.dhs-container h2').after($searchContainer);
-        
-        // Add search functionality
-        $searchInput.on('keyup', function() {
+    function initSearchFunctionality() {
+        // Add search functionality to the existing input
+        $('.dhs-search-input').on('keyup', function() {
             const searchValue = $(this).val().toLowerCase();
             $('.dhs-heroes-table tbody tr').each(function() {
                 const heroName = $(this).find('td').eq(0).text().toLowerCase();
@@ -110,21 +104,6 @@
                     $(this).hide();
                 }
             });
-        });
-        
-        // Style the search input
-        $searchContainer.css({
-            'margin-bottom': '15px',
-            'display': 'flex',
-            'justify-content': 'flex-end'
-        });
-        
-        $searchInput.css({
-            'padding': '8px 12px',
-            'border': '1px solid #e2e8f0',
-            'border-radius': '4px',
-            'width': '250px',
-            'font-size': '14px'
         });
     }
     

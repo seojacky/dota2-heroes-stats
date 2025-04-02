@@ -1,0 +1,72 @@
+# Copyright (C) 2024 seo_jacky
+# This file is distributed under the same license as the Dota 2 Heroes Stats plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dota 2 Heroes Stats 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/seojacky/dota2-heroes-stats/issues\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-04-02T10:00:00+00:00\n"
+"PO-Revision-Date: 2025-04-02 17:08+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: dota2-heroes-stats\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"X-Loco-Version: 2.7.1; wp-6.7.2"
+
+#: dota2-heroes-stats.php:116 dota2-heroes-stats.php:193
+msgid "Data updated:"
+msgstr "Данные обновлены:"
+
+#. Description of the plugin
+msgid "Display Dota 2 heroes statistics with a shortcode [dota2_heroes_stats]."
+msgstr ""
+"Отображение статистики героев Dota 2 с помощью шорткода [dota2_heroes_stats]."
+
+#. Plugin Name of the plugin
+msgid "Dota 2 Heroes Stats"
+msgstr "Статистика героев Dota 2"
+
+#: dota2-heroes-stats.php:112 dota2-heroes-stats.php:174
+msgid "Hero"
+msgstr "Герой"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/seojacky/dota2-heroes-stats"
+msgstr "https://github.com/seojacky/dota2-heroes-stats"
+
+#. Author URI of the plugin
+msgid "https://t.me/big_jacky"
+msgstr "https://t.me/big_jacky"
+
+#: dota2-heroes-stats.php:118
+msgid "Loading heroes data..."
+msgstr "Загрузка данных героев..."
+
+#: dota2-heroes-stats.php:117 dota2-heroes-stats.php:143
+msgid "No heroes data available. Please try again later."
+msgstr "Нет доступных данных о героях. Попробуйте еще раз позже."
+
+#: dota2-heroes-stats.php:114 dota2-heroes-stats.php:176
+msgid "Pro bans"
+msgstr "Про баны"
+
+#: dota2-heroes-stats.php:113 dota2-heroes-stats.php:175
+msgid "Pro picks"
+msgstr "Про пики"
+
+#: dota2-heroes-stats.php:115 dota2-heroes-stats.php:177
+msgid "Pro wins"
+msgstr "Про винрейт"
+
+#: dota2-heroes-stats.php:171
+msgid "Search heroes..."
+msgstr "Поиск героев..."
+
+#. Author of the plugin
+msgid "seo_jacky"
+msgstr "seo_jacky"

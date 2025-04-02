@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('DHS_VERSION', '1.0.0');
+define('DHS_VERSION', '1.0');
 define('DHS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('DHS_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('DHS_TEXT_DOMAIN', 'dota2-heroes-stats');
@@ -59,11 +59,11 @@ class Dota2_Heroes_Stats {
      */
     public function activate() {
         // Schedule daily cron job at 3:00 GMT
-        if (!wp_next_scheduled('dhs_daily_cron_event')) {
+        if (!wp_next_scheduled('dota2_heroes_stats_cron_event')) {
             // Get timezone offset to calculate 3:00 GMT in local server time
             $gmt_offset = get_option('gmt_offset');
             $timestamp = strtotime('tomorrow 03:00:00') - ($gmt_offset * HOUR_IN_SECONDS);
-            wp_schedule_event($timestamp, 'daily', 'dhs_daily_cron_event');
+            wp_schedule_event($timestamp, 'daily', 'dota2_heroes_stats_cron_event');
         }
         
         // Perform initial data fetch
@@ -75,7 +75,7 @@ class Dota2_Heroes_Stats {
      */
     public function deactivate() {
         // Clear scheduled cron job
-        wp_clear_scheduled_hook('dhs_daily_cron_event');
+        wp_clear_scheduled_hook('dota2_heroes_stats_cron_event');
     }
     
     /**
@@ -168,7 +168,10 @@ class Dota2_Heroes_Stats {
         
         // Start building output
         $output = '<div class="dhs-container">';
-        $output .= '<h2>' . __('Track statistics and rating of any Dota2 hero', DHS_TEXT_DOMAIN) . '</h2>';
+        // Add search container directly in PHP
+        $output .= '<div class="dhs-search-container">';
+        $output .= '<input type="text" class="dhs-search-input" placeholder="' . __('Search heroes...', DHS_TEXT_DOMAIN) . '">';
+        $output .= '</div>';
         
         // Create table
         $output .= '<div class="dhs-table-responsive">';
