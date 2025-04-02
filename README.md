@@ -52,7 +52,7 @@ No, the plugin uses the free tier of the OpenDota API which doesn't require an A
 
 ## Changelog
 
-### 1.0.0
+### 1.0
 * Initial release
 
 ## License
