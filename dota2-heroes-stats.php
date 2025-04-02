@@ -3,7 +3,7 @@
  * Plugin Name: Dota 2 Heroes Stats
  * Plugin URI: https://github.com/seojacky/dota2-heroes-stats
  * Description: Display Dota 2 heroes statistics with a shortcode [dota2_heroes_stats].
- * Version: 1.0.0
+ * Version: 1.0
  * Author: seo_jacky
  * Author URI: https://t.me/big_jacky
  * Text Domain: dota2-heroes-stats
